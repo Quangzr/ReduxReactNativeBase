@@ -1,43 +1,25 @@
 import * as React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
-function HomeScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-
-      <TouchableOpacity onPress={() => navigation.navigate('Alo')}>
-        <Text>Home Screen</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
-
-function AloScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Alo</Text>
-
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Text>alo Screen</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
+import {navigationRef} from './rootNavigation';
+import MyProfile from '../screens/TestBase/MyProfile';
+import ClaimGift from '../screens/TestBase/ClaimGift';
+import HomeDrawer from './drawer';
+import {CLAIM_GIFT, HOME_DRAWER, MY_PROFILE} from './screenNames';
 
 const Stack = createNativeStackNavigator();
 
-function App() {
+function NavigationStack() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Alo" component={AloScreen} />
+    // Add screenOptions={{headerShown: false}} to hide header
+    <NavigationContainer ref={navigationRef}>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name={HOME_DRAWER} component={HomeDrawer} />
+        <Stack.Screen name={MY_PROFILE} component={MyProfile} />
+        <Stack.Screen name={CLAIM_GIFT} component={ClaimGift} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-export default App;
+export default NavigationStack;
