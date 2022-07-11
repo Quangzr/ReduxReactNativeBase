@@ -3,11 +3,18 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "postinstall": "patch-package",
+    "android": "ENVFILE=.env.development react-native run-android",
+    "wandroid": "SET ENVFILE=.env.development && react-native run-android",
+    "wa": "SET ENVFILE=.env.development && react-native run-android",
+    "ios": "ENVFILE=.env.development react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "build:android": "cd android && ENVFILE=.env.production ./gradlew assemblerelease",
+    "build:ios": "ENVFILE=.env.production react-native run-ios --configuration Release",
+    "wbuild": "cd android && SET ENVFILE=.env.production && ./gradlew assemblerelease",
+    "wb": "cd android && SET ENVFILE=.env.production && ./gradlew assemblerelease"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.7",
