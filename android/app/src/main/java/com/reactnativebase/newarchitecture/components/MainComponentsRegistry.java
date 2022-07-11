@@ -1,4 +1,4 @@
-package com.reduxbase.newarchitecture.components;
+package com.reactnativebase.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
