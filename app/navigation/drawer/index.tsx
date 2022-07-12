@@ -1,11 +1,10 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerContent from './DrawerContent';
-import {HOME_TAB, LOGIN_SCREEN, SECOND_DRAWER, SETTING_SCREEN} from '../screenNames';
-import Setting from '../../screens/TestBase/Setting';
-import HomeTab from '../tab';
-import Login from '../../screens/TestBase/Login';
-import SecondDrawerComponent from './SecondDrawer';
+import {HOME_TAB, LOGIN_SCREEN, SETTING_SCREEN} from '../screenNames';
+import HomeTab from '../bottomTab';
+import Login from 'app/screens/Login';
+import Setting from 'app/screens/Setting';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,7 +16,9 @@ const HomeDrawer = () => {
       screenOptions={{drawerPosition: 'right', headerShown: false, drawerType: 'front'}}
       drawerContent={props => <DrawerContent {...props} />}>
       {/* Add options={{unmountOnBlur: true}} to remove screen from stack if exit the screen */}
-      <Drawer.Screen name={SECOND_DRAWER} component={SecondDrawerComponent} />
+      <Drawer.Screen name={HOME_TAB} component={HomeTab} />
+      <Drawer.Screen name={LOGIN_SCREEN} component={Login} />
+      <Drawer.Screen name={SETTING_SCREEN} component={Setting} />
     </Drawer.Navigator>
   );
 };
