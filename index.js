@@ -2,9 +2,9 @@
  * @format
  */
 
-import { AppRegistry } from 'react-native';
+import {AppRegistry} from 'react-native';
 import App from './app/Entrypoint';
-import { name as appName } from './app.json';
+import {name as appName} from './app.json';
 
 // patch local compare crashing: https://github.com/facebook/react-native/issues/32174 (fix crash when compare string vs null)
 function patchLocalCompare() {
@@ -29,6 +29,7 @@ function patchLocalCompare() {
 
 patchLocalCompare();
 
-// console.disableYellowBox = true; // turn off warning in console log
+// console.disableYellowBox = true; // turn off warning in app
+// console.warn = () => {}; // turn off warning in console log
 
 AppRegistry.registerComponent(appName, () => App);

@@ -73,11 +73,13 @@ yarn build:android
 
 Source code in folder `app`.
 
-- **assets**: Static files like fonts, images, ...
+- **assets**: Static files like fonts, images, icons, ...
 - **components**: Global re-usable Components.
+- **constants**: Constant values.
 - **models**: Data types.
-- **screens**: Screen Components.
 - **navigation**: Navigation configuration.
+- **res**: Resources for app like strings, colors, styles, ...
+- **screens**: Screen Components.
 - **services**: Connect APIs.
 - **store**: Global state management.
 - **utils**: Helper variables, functions.

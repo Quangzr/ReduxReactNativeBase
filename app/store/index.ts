@@ -1,12 +1,19 @@
 import {AnyAction, combineReducers, configureStore, Reducer} from '@reduxjs/toolkit';
 import {setupListeners} from '@reduxjs/toolkit/query';
+import authApi from 'app/services/auth.service';
+import authSlice from './auth.slice';
 
 // all reducer + api
-const combinedReducer = combineReducers({});
+const combinedReducer = combineReducers({
+  // services
+  [authApi.reducerPath]: authApi.reducer,
 
-// add logic
+  // slices
+  [authSlice.name]: authSlice.reducer,
+});
+
 const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
-  //   if() {} else {}
+  // if else here to controll the reducer
   return combinedReducer(state, action);
 };
 
